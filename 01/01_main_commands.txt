@@ -1,0 +1,32 @@
+# https://www.youtube.com/watch?v=XtO3hUWLKF8&ab_channel=DKA-DEVELOP
+Lesson 2
+
+1. Launch docker image
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+docker run -it ubuntu bash
+
+docker run -h root -it ubuntu bash # specify host name
+docker run --name <container_name> # specify container name 
+
+2. List of all containers
+sudo docker ps -a
+docker ps --filter status=running # running containers
+
+3. sudo docker inspect 7af132151ec9
+4. sudo docker diff <container_name> # list of changed files in container
+5. sudo docker logs <container_name> # logs of event in container
+6. sudo docker -p <HOST_PC_PORT>:<CONTAINER_PORT>
+7. sudo docker images # list of images
+
+-----------------
+Lesson 3 # Create image
+https://www.youtube.com/watch?v=LNAATmw3ImM&ab_channel=DKA-DEVELOP
+
+1. sudo docker run -it  --name myapp --hostname myapp ubuntu bash
+2. Sudo root@myapp:/# apt update
+3. Now i am in container root@myapp:/# apt install cowsay
+4. sudo docker commit myapp mascai/myapp # Create image of the container. "mascai" - dockerID, "myapp" - description of the image
+Received -- sha256:64b89fcec4008127e87c420dd1d7fc0a1512cfcb3923cef337bc6c509b8998a5
+
+5. I can run >> sudo docker run mascai/myapp cowsay "QWERT"
+6. sudo docker push mascai/myapp
