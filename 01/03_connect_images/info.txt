@@ -1,0 +1,5 @@
+# create image mysqlserver
+sudo docker run --name mysqlserver -v /my/own/datadir:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mariadb
+
+# create image adminer connected to container mysqlserver 
+sudo docker run --link mysqlserver:db -p 8080:8080 adminer 
